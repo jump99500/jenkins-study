@@ -1,0 +1,4 @@
+project_name: 'ssw'
+project_region: 'ap-northeast-2'
+key_name: './id_rsa'
+bucket_name: 'ssw-s3-bucket9950'
