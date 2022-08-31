@@ -21,7 +21,7 @@ else
     NEW_TAG_VER=0.01
 fi
 
-# 현재 위치에 존재하는 DOCKER FILE을 사용하여 빌드
+# 현재 위치에 존재하는 DOCKER FILE을 사용하여 빌드 
 docker build -t $DOCKER_REPOSITORY_NAME:$NEW_TAG_VER .
 
 # docker hub에 push 하기위해 login
