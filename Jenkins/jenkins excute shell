@@ -56,11 +56,12 @@ node {
         sh "echo 'Ready'"
     }
     
-    stage('build')
-        sh "whereis httpd.sh"
-        
+    stage('Build') {
+        sh "chmod 774 /data/workspace/Clone-for-git-hub/Script/sh/httpd.sh"
+        sh "/data/workspace/Clone-for-git-hub/Script/sh/httpd.sh"
+    }    
 
-    stage ('print') {
+    stage ('Success') {
         print(success)
     }
 }
