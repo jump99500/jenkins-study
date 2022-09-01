@@ -65,3 +65,103 @@ node {
         print(success)
     }
 }
+
+
+👩 Script 문법 예제 해석
+node {
+    def hello = 'Hello SSW' // 변수선언
+    stage ('clone') {
+        git 'https://github.com/jump99500/Jenkins_Test.git' // git clone
+    }
+    dir ('sample') { // clone 받은 프로젝트 안의 sample 디렉토리에서 stage 실행
+        stage ('sample/execute') {
+            sh './execute.sh'
+        }
+    }
+    stage ('print') {
+        print(hello) // 함수 + 변수 사용
+    }
+}
+
+// 함수 선언 (반환 타입이 없기 때문에 void로 선언, 있다면 def로 선언하면 됨)
+void print(message) {
+    echo "${message}"
+}
+
+
+#레파지토리 소스에 Jenkinsfile 만들고 그걸 실행시켜보기
+pipeline {
+    agent any
+    
+    stages() {
+        stage('git clone') {
+            steps() {
+                git 'https:ithub.com/jump99500/jenkins-pipeline.git'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        
+        stage('execute sh') {
+            steps {
+                sh "chmod 774 ./project.sh"
+                sh "./project.sh"
+            }
+        }        
+    }
+
+
+###스크립트 형식####
+node {
+    stage('git clone') {
+        git 'https://github.com/jump99500/jenkins-pipeline.git'
+    }
+    stage('Test') {
+        echo 'Testing....'
+    }
+    stage('project.sh') {
+		sh "chmod 774 ./project.sh"
+        sh "./project.sh"
+    }
+}
+
+
+
+
+도커 파일을 이용해서 도커 이미지 생성하기
+pipeline {
+    agent any
+    
+    stages() {
+        stage('git clone') {
+            steps() {
+                git 'https:ithub.com/jump99500/jenkins-pipeline.git'
+            }
+        }
+        
+        stage('create docker image') {
+            steps {
+                sh "docker build -t app-for-jenkins-test:0.0.1  --network host ."
+            }
+        }
+    }
+}
+
+*/
+
+node {
+    stage('git clone') {
+        git 'https://github.com/jump99500/jenkins-pipeline.git'
+    }  
+    stage('Test') {
+        echo 'Test By SSW'
+    }
+    stage('create docker image') {
+        sh "docker build -t app-for-jenkins-test:0.0.1  --network host ."
+    }
+
+}

@@ -1,0 +1,3 @@
+eksctl create cluster --name eks-test --region ap-northeast-2 --with-oidc --ssh-access --ssh-public-key aws_k8s_test --nodes 2 --node-type t3.small --node-volume-size=8 --managed --nodes-min 2 --nodes-max 3
+
+
