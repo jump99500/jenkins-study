@@ -1,0 +1,66 @@
+1. 
+node {
+    def hello = 'Hello SSW' // 변수선언
+    stage ('clone') {
+        git 'https://github.com/jump99500/Jenkins_Test.git' // git clone
+    }
+    dir ('sample') { // clone 받은 프로젝트 안의 sample 디렉토리에서 stage 실행
+        stage ('sample/execute') {
+            sh './execute.sh'
+        }
+    }
+    stage ('print') {
+        print(hello) // 함수 + 변수 사용
+    }
+}
+
+
+2.  
+👩간단한 예제
+node {
+    stage('Ready') {
+        sh "echo 'Ready'"
+    }
+
+    stage('Build') {
+        sh "echo 'Build Jar'"
+    }
+
+    stage('Deploy') {
+        sh "echo 'Deply AWS'"
+    }
+}
+
+3.
+실제 쓴다면
+node {
+    def hello = 'Hello SSW' // 변수선언
+    stage ('clone') {
+        git 'https://github.com/jump99500/jenkins-study.git' // git clone
+    }
+    dir ('sample') { // clone 받은 프로젝트 안의 sample 디렉토리에서 stage 실행
+        stage ('Script/sh/httpd.sh') {
+            sh '[절대 경로 지정]/execute.sh'
+        }
+    }
+    stage ('print') {
+        print(hello) // 함수 + 변수 사용
+    }
+}
+
+4. 
+httpd 돌리는 예제
+node {
+    def success = 'Test Scuccess!!'
+    stage('Ready') {
+        sh "echo 'Ready'"
+    }
+    
+    stage('build')
+        sh "whereis httpd.sh"
+        
+
+    stage ('print') {
+        print(success)
+    }
+}
