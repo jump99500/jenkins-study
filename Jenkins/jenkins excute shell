@@ -30,7 +30,7 @@ node {
         sh "echo 'Deply AWS'"
     }
 }
-
+  
 3.
 실제 쓴다면
 node {
