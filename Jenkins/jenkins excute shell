@@ -15,7 +15,7 @@ node {
 }
 
 
-2.  
+2.
 👩간단한 예제
 node {
     stage('Ready') {
@@ -30,7 +30,7 @@ node {
         sh "echo 'Deply AWS'"
     }
 }
-
+   
 3.
 실제 쓴다면
 node {
