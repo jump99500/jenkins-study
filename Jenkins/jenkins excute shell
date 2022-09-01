@@ -47,7 +47,7 @@ node {
         print(hello) // 함수 + 변수 사용
     }
 }
-  
+    
 4. 
 httpd 돌리는 예제
 node {
