@@ -1,12 +1,11 @@
 #######################WEB####################
-
 node {
     def success = 'Test Scuccess!!'
     stage('Ready') {
         sh "echo 'Ready'"
     }
     
-    stage('Build') {
+    stage('Install httpd') {
         sh "chmod 774 /data/workspace/Jenkins_Study/Script/sh/httpd.sh"
         sh "/data/workspace/Jenkins_Study/Script/sh/httpd.sh"
     }    
@@ -15,13 +14,14 @@ node {
         sleep time: 5, unit: 'MINUTES'
     }    
 
-    stage('Build') {
+    stage('Set Proxy') {
         sh "chmod 774 /data/workspace/Jenkins_Study/Script/sh/proxy.sh"
         sh "/data/workspace/Jenkins_Study/Script/sh/proxy.sh"
     }  
 
     stage ('Success') {
         print(success)
+        slackSend channel: '#공부', color: 'good', message: 'Build Success'
     }
 }
 
