@@ -27,13 +27,14 @@ Environment="CATALINA_HOME=/opt/tomcat/latest"
 Environment="CATALINA_PID=/opt/tomcat/latest/temp/tomcat.pid"
 Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
 
+ExecStart=
 ExecStart=/opt/tomcat/latest/bin/startup.sh
 ExecStop=/opt/tomcat/latest/bin/shutdown.sh
 
 [Install]
 WantedBy=multi-user.target
 EOF
-sudo sed -i 's/<\/tomcat-users>//' /opt/tomcat/latest/conf/tomcat-users.xml
+sudo sed -i 's/<\/tomcat-users>//' /opt/tomcat/latest/conf/tomcat-users.    xml
 sudo echo '\n\
 <role rolename="admin-gui"/> \n\
 <role rolename="manager-gui"/> \n\
