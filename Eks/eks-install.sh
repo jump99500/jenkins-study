@@ -19,3 +19,5 @@ eksctl create cluster --name eks-test --region ap-northeast-2 --with-oidc --ssh-
 
 # 수동으로 쉘에서 입력
 $ export PATH=$PATH:$HOME/bin && source <(kubectl completion bash) && echo "source <(kubectl completion bash)" >> ~/.bashrc
+
+scp -i C:\Users\SSP-SANGUN.HAN\Desktop\study\aws_k8s_test.pem -r .aws ubuntu@54.180.121.154:/home/ubuntu
