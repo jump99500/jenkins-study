@@ -1,0 +1,44 @@
+#######################WEB####################
+
+node {
+    def success = 'Test Scuccess!!'
+    stage('Ready') {
+        sh "echo 'Ready'"
+    }
+    
+    stage('Build') {
+        sh "chmod 774 /data/workspace/Jenkins_Study/Script/sh/httpd.sh"
+        sh "/data/workspace/Jenkins_Study/Script/sh/httpd.sh"
+    }    
+
+    stage('Sleep') {
+        sleep time: 5, unit: 'MINUTES'
+    }    
+
+    stage('Build') {
+        sh "chmod 774 /data/workspace/Jenkins_Study/Script/sh/proxy.sh"
+        sh "/data/workspace/Jenkins_Study/Script/sh/proxy.sh"
+    }  
+
+    stage ('Success') {
+        print(success)
+    }
+}
+
+
+######################WAS#######################
+node {
+    def success = 'Test Scuccess!!'
+    stage('Ready') {
+        sh "echo 'Ready'"
+    }
+    
+    stage('Build') {
+        sh "chmod 774 /data/workspace/Jenkins_Study/Script/sh/tomcat_install.sh"
+        sh "/data/workspace/Jenkins_Study/Script/sh/tomcat_install.sh"
+    }    
+
+    stage ('Success') {
+        print(success)
+    }
+}
