@@ -1,6 +1,4 @@
 #!/bin/bash
-setenforce 0
-sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
 sudo sh -c 'cat >> /etc/httpd/conf/httpd.conf << EOF
 <VirtualHost *:80>
 ProxyRequests Off
