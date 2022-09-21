@@ -10,4 +10,4 @@ services:
         ports:
             - "8080:8080"
         privileged: true
-        user: root
+        user: root 
