@@ -15,4 +15,4 @@ ProxyPassReverse / http://172.31.196.140:8080/
 EOF'
 
 sudo systemctl restart httpd
-sudo systemctl enable httpd
+sudo systemctl enable httpd 

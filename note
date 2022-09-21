@@ -15,6 +15,10 @@ node {
         sh "/data/workspace/Jenkins_Study/Script/sh/httpd.sh"
     }    
 
+    stage('Check Stage') {
+        input 'Continue to next stage?'
+    }     
+
     stage('Sleep') {
         sleep time: 5, unit: 'MINUTES'
     }    
@@ -26,9 +30,10 @@ node {
 
     stage ('Success') {
         print(success)
-        slackSend channel: '#공부', color: 'good', message: 'Build Success'
+        slackSend channel: '#공부', color: 'good', message: 'Test Success!', teamDomain: 'jenkinsstudy-hq', tokenCredentialId: 'Slack Notify'
     }
 }
+
 
 
 ######################WAS#######################
@@ -41,7 +46,7 @@ node {
     stage('Git Clone') {
         git branch: 'main', credentialsId: 'adbdde20-f69f-448c-8559-eed77776b163', url: 'https://github.com/jump99500/jenkins-study.git'
     } 
-    
+
     stage('Build') {
         sh "chmod 774 /data/workspace/Jenkins_Study/Script/sh/tomcat_install.sh"
         sh "/data/workspace/Jenkins_Study/Script/sh/tomcat_install.sh"
@@ -50,4 +55,4 @@ node {
     stage ('Success') {
         print(success)
     }   
-}   
+} 
