@@ -34,6 +34,7 @@ ExecStop=/opt/tomcat/latest/bin/shutdown.sh
 [Install]
 WantedBy=multi-user.target
 EOF
+
 sudo sed -i 's/<\/tomcat-users>//' /opt/tomcat/latest/conf/tomcat-users.    xml
 sudo echo '\n\
 <role rolename="admin-gui"/> \n\
