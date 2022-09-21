@@ -48,11 +48,11 @@ node {
     } 
 
     stage('Build') {
-        sh "chmod 774 /data/workspace/Jenkins_Study/Script/sh/tomcat_install.sh"
-        sh "/data/workspace/Jenkins_Study/Script/sh/tomcat_install.sh"
+        sh "chmod 774 /data/workspace/Jenkins_Pipeline_was/Script/sh/tomcat_install.sh"
+        sh "data/workspace/Jenkins_Pipeline_was/Script/sh/tomcat_install.sh"
     }    
 
     stage ('Success') {
         print(success)
     }   
-} 
+}
