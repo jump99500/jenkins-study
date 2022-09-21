@@ -9,8 +9,8 @@ Order deny,allow
 Allow from all
 </proxy>
 
-ProxyPass / http://172.31.196.142:8080/
-ProxyPassReverse / http://172.31.196.142:8080/
+ProxyPass / http://172.31.196.140:8080/
+ProxyPassReverse / http://172.31.196.140:8080/
 </VirtualHost>
 EOF'
 

@@ -4,6 +4,11 @@ node {
     stage('Ready') {
         sh "echo 'Ready'"
     }
+
+    stage('Git Clone') {
+        git branch: 'main', credentialsId: 'adbdde20-f69f-448c-8559-eed77776b163', url: 'https://github.com/jump99500/jenkins-study.git'
+    }    
+    
     
     stage('Install httpd') {
         sh "chmod 774 /data/workspace/Jenkins_Study/Script/sh/httpd.sh"
@@ -32,6 +37,10 @@ node {
     stage('Ready') {
         sh "echo 'Ready'"
     }
+
+    stage('Git Clone') {
+        git branch: 'main', credentialsId: 'adbdde20-f69f-448c-8559-eed77776b163', url: 'https://github.com/jump99500/jenkins-study.git'
+    } 
     
     stage('Build') {
         sh "chmod 774 /data/workspace/Jenkins_Study/Script/sh/tomcat_install.sh"
